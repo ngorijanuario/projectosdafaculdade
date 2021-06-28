@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="parseInt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 3</title>
+</head>
+<body>
+    <script>
+        var genero = new Array(15);
+        var estado = new Array(15);
+        var idade = new Array(15);
+        var estadocivil = new Array(15);
+        //
+        genero = ['M','F','M','F','M','F','M','F','M','F','M','F','M','F','M'];
+        estado = ['Não se aplica','Não se aplica','Não se aplica','Concebida','Não se aplica','Concebida','Não se aplica','Concebida','Não se aplica','Concebida','Não se aplica','Concebida','Não se aplica','Concebida','Não se aplica'];
+        idade = ['15','17','23','30','27','14','18','20','22','18','40','32','19'];
+        estadocivil = ['S','C','D','V','V','D','C','S','S','C','D','V','V','D','C'];
+        function mostrarconcebidas(){
+            var total = 0;
+            for(var x=0; x<15; x++){
+                if(genero[x] == "F"){
+                    if(estado[x] == "Concebida"){
+                        total = total +1;
+                        document.getElementById("alineaa").innerText = "Total de concebidas: "+total;
+                    }
+                }
+            }
+        }
+        //alinea c
+        function alterar(){
+            var inteiro = parseInt(document.getElementById("n1").value);
+            var es = document.getElementById("op").value;
+            for(x=0;x<15; x++){
+                if(genero[x] == "F"){
+                    estado[x] = es;
+                }
+            }
+        }
+        //alinea d
+        function qpc(){
+            var a = new Array(1);
+            a = [18];
+            var total = 0;
+            for(var x=0;x<15; x++){
+                if(parseInt(idade[x])<= a[0]){
+                    if(genero[x] == "F"){
+                        if(estado[x] == "Concebida"){
+                            total = total +1;
+                            document.getElementById("alinead").innerText = "Total de menores concebidas: "+total;
+                        }
+                    }
+                }
+            }
+        }
+        // Alinea e
+        function primos(){
+            for(var x=0;x<15; x++){
+                if(genero[x].indexOf()%x != 0){
+                    document.write("<p>Genero: "+genero[x]+"</p>");
+                    document.write("<p>Estado: "+estado[x]+"</p>");
+                    document.write("<p>Idade: "+idade[x]+"</p>");
+                    document.write("<p>Estado Civil: "+estadocivil[x]+"</p>");
+                    document.write("_________________________________________")
+                }
+            }
+        }
+    </script>
+    <button onclick="mostrarconcebidas();">Alinea a</button>
+    <button onclick="qpc();">Alined</button>
+    <button onclick="primos();">Alinee</button>
+
+    <p id="alineaa"></p>
+    <p id="alinead"></p>
+    <input type="text" id="n1">
+    <select id="op">
+        <option value="Concebida">Concebida</option>
+        <option value="Não se aplica">Não se aplica</option>
+    </select>
+    <button onclick="alterar();">Alterar</button>
+</body>
+</html>

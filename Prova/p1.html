@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 1</title>
+</head>
+<body>
+    <script>
+        var numeros = new Array(1000);
+        //Alinea a
+        function impares(){
+            var totaldeimpares=0;
+            for(var x=0; x<=1000; x++){
+                if(x%2 != 0){
+                    totaldeimpares = totaldeimpares+1;
+                    document.getElementById("alineaa").innerText="Total de numeros impares: "+totaldeimpares;
+                }
+            }
+        }
+        //Alinea b
+        function primos(){
+            var totaldeprimos=0;
+            for(var x=0; x<=1000; x++){
+                if(1000 % x != 0){
+                    totaldeprimos = totaldeprimos+1;
+                    document.getElementById("alineab").innerText="Total de numeros primos: "+totaldeprimos;
+                }
+            }
+        }
+        //Alinea c
+        function escreverprimos(){
+            for(var x=100; x<=500; x++){
+                if(1000 % x != 0){
+                    var numeros = document.write("<b>"+x+" PRIMO</b> <br>");
+                }
+            }
+        }
+        //Alinea d
+        function escreverimpares(){
+            var timpares = 0;
+            for(var x=0; x<=1000; x++){
+                if(x%3 == 0){
+                    timpares = timpares+1;
+                    document.getElementById("alineac").innerText="Quantidade de numeros impares multiplos de 3: "+timpares;
+                }
+            }
+        }
+    </script>
+    <button onclick="impares();">Aline A</button>
+    <button onclick="primos();">Aline B</button>
+    <button onclick="escreverprimos();">Aline C</button>
+    <button onclick="escreverimpares();">Aline C</button>
+    <p id="alineaa"></p>
+    <p id="alineab"></p>
+    <p id="alineac"></p>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 2</title>
+</head>
+<body>
+    <script>
+        function resultado(){
+            var n1 = document.getElementById("p1").value;
+            var n2 = document.getElementById("p2").value;
+            var r = document.getElementById("resultadoesperado").value;
+            var op = document.getElementById("bt").value;
+            switch(op){
+                case "/":
+                    var final = n1/n2;
+                    if(final == r){
+                        var l = 0;
+                        l = parseInt(document.getElementById("pontos").value)+5;
+                        document.getElementById("pontos").value = l;
+                        document.getElementById("mensagem").innerHTML = "Mensagem: Parabens";
+                    }
+                    else{
+                        var l = 0;
+                        l = parseInt(document.getElementById("pontos").value)-5;
+                        document.getElementById("pontos").value = l;
+                        document.getElementById("mensagem").innerHTML = "Mensagem: Errado, tente mais uma vez";
+                    }
+                break;
+                case "*":
+                    var final = n1*n2;
+                    if(final == r){
+                        var l = 0;
+                        l = parseInt(document.getElementById("pontos").value)+5;
+                        document.getElementById("pontos").value = l;
+                        document.getElementById("mensagem").innerHTML = "Mensagem: Parabens";
+                    }
+                    else{
+                        var l = 0;
+                        l = parseInt(document.getElementById("pontos").value)-5;
+                        document.getElementById("pontos").value = l;
+                        document.getElementById("mensagem").innerHTML = "Mensagem: Errado, tente mais uma vez";
+                    }
+                break;
+                case "-":
+                    var final = n1-n2;
+                    if(final == r){
+                        var l = 0;
+                        l = parseInt(document.getElementById("pontos").value)+5;
+                        document.getElementById("pontos").value = l;
+                        document.getElementById("mensagem").innerHTML = "Mensagem: Parabens";
+                    }
+                    else{
+                        var l = 0;
+                        l = parseInt(document.getElementById("pontos").value)-5;
+                        document.getElementById("pontos").value = l;
+                        document.getElementById("mensagem").innerHTML = "Mensagem: Errado, tente mais uma vez";
+                    }
+                break;
+                case "+":
+                    var final = n1+n2;
+                    if(final == r){
+                        var l = 0;
+                        l = parseInt(document.getElementById("pontos").value)+5;
+                        document.getElementById("pontos").value = l;
+                        document.getElementById("mensagem").innerHTML = "Mensagem: Parabens";
+                    }
+                    else{
+                        var l = 0;
+                        l = parseInt(document.getElementById("pontos").value)-5;
+                        document.getElementById("pontos").value = l;
+                        document.getElementById("mensagem").innerHTML = "Mensagem: Errado, tente mais uma vez";
+                    }
+                break;
+                default:
+                        alert("Algo deu errado.");
+                        break;
+            }
+        }
+        function reiniciar(){
+            document.getElementById("pontos").value = 0;
+            document.getElementById("mensagem").innerHTML = "";
+            document.getElementById("p1").value = 0;
+            document.getElementById("p2").value = 0;
+            document.getElementById("resultadoesperado").value = "";
+        }
+    </script>
+    Sua pontuação: <input type="text" id="pontos" style="border: none;" value="0">
+    <p id="mensagem">Mensagem:</p>
+    Primeiro numero: <input type="text" id="p1" value="0"><br>
+    Segundo numero: <input type="text" id="p2" value="0"><br>
+    <input type="button" id="bt" value="/">
+    <input type="button" id="bt" value="*">
+    <input type="button" id="bt" value="-">
+    <input type="button" id="bt" value="+">
+    <br>
+    Qual será o resultado? <input type="text" id="resultadoesperado">
+    <br>
+    <button onclick="resultado();">Verificar resultado</button>
+    <br>
+    <button onclick="reiniciar();">Reiniciar</button>
+</body>
+</html>
