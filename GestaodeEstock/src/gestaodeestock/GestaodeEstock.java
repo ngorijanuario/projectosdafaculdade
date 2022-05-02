@@ -17,7 +17,8 @@ public class GestaodeEstock {
         rotina = Variavel que controla o ciclo do programa
         pacotes = numer de pacotes que o cliente irá solicitar
         */
-        int pacotesMaca, pacotesBatata, Opcoes,resultado = 1, resultado1 = 1, percentagemMaca = 0, percentagemBatata = 0;
+        int pacotesMaca, pacotesBatata, Opcoes,resultado = 1, resultado1 = 1;
+        float percentagemMaca = 0, percentagemBatata = 0;
         String opcao2;
         boolean rotina=true;
         // Apresentando as informações do programa na tela
@@ -43,15 +44,14 @@ public class GestaodeEstock {
                 int pacotes;
                 System.out.print("Quantos pacotes: ");
                 pacotes = entrada.nextInt();
-                if (pacotesMaca < pacotes && resultado !=0){
+                if (pacotesMaca < pacotes && resultado !=0 && pacotesMaca !=0){
                     System.out.println("Não temos "+pacotes+" pacotes, mas temos "+pacotesMaca+" pacotes de maças");
                     System.out.print("Digite 'S' pra fazer a venda e 'N' para cancelar a venda\nResposta: ");
                     opcao2=entrada.next();
                     switch (opcao2){
                         case "S":
                             System.out.println("========= Facturação De Vendas ===========");
-                            percentagemMaca=(pacotesMaca*100)/pacotesMaca;
-                            System.out.println("Vendeu "+ percentagemMaca+"%");
+                            percentagemMaca=(float)(pacotesMaca*100)/pacotesMaca;
                             System.out.println("Vendeu "+pacotesMaca+" pacotes de maças");
                             pacotesMaca=0;
                             break;
@@ -63,13 +63,12 @@ public class GestaodeEstock {
                             break;
                     }
                 }
-                else if(pacotesMaca >= pacotes && resultado !=0){
+                else if(pacotesMaca >= pacotes && resultado !=0 && pacotesMaca !=0){
+                    System.out.println("========= Facturação De Vendas ===========");
                     System.out.println("Vendeu "+pacotes+" pacotes de maças");
                     resultado=pacotesMaca-pacotes;
                     System.out.println("Sobrou "+resultado);
-                    System.out.println("========= Facturação De Vendas ===========");
-                    percentagemMaca=(pacotes*100)/pacotesMaca;
-                    System.out.println("Vendeu "+ percentagemMaca+"%");
+                    percentagemMaca=(float)(pacotes*100)/pacotesMaca;
                     pacotesMaca=resultado;
                 }
                 else{
@@ -80,15 +79,14 @@ public class GestaodeEstock {
                 System.out.println("Vendas de Pacotes de batatas");
                 System.out.print("Quantos pacotes: ");
                 pacotes = entrada.nextInt();
-                if (pacotesBatata < pacotes && resultado1 !=0){
+                if (pacotesBatata < pacotes && resultado1 !=0 && pacotesBatata !=0){
                 System.out.println("Não temos "+pacotes+" pacotes, mas temos "+pacotesBatata+" pacotes de batatas");
                 System.out.print("Digite 'S' pra fazer a venda e 'N' para cancelar a venda\nResposta: ");
                 opcao2=entrada.next();
                 switch (opcao2){
                     case "S":
                         System.out.println("========= Facturação De Vendas ===========");
-                        percentagemBatata=(pacotesBatata*100)/pacotesBatata;
-                        System.out.println("Vendeu "+ percentagemBatata+"% do Sotck atual");
+                        percentagemBatata=(float) (pacotesBatata*100)/pacotesBatata;
                         System.out.println("Vendeu "+pacotesBatata+" pacotes de batatas");
                         pacotesBatata=0;
                         break;
@@ -99,13 +97,12 @@ public class GestaodeEstock {
                         System.out.println("Opção invalida");
                         break;
                 }
-                } else if(pacotesBatata >= pacotes && resultado1 !=0){
+                } else if(pacotesBatata >= pacotes && resultado1 !=0 && pacotesBatata !=0){
+                    System.out.println("========= Facturação De Vendas ===========");
                     System.out.println("Vendeu "+pacotes+" pacotes de maças");
                     resultado1=pacotesBatata-pacotes;
                     System.out.println("Sobrou "+resultado1);
-                    System.out.println("========= Facturação De Vendas ===========");
-                    percentagemBatata=(pacotes*100)/pacotesBatata;
-                    System.out.println("Vendeu "+ percentagemBatata+"% Do Sotck atual");
+                    percentagemBatata= (float)(pacotes*100)/pacotesBatata;
                     pacotesBatata=resultado1;
                 }
                 else{
@@ -135,8 +132,8 @@ public class GestaodeEstock {
         }
        } while(rotina!=false);
        System.out.println("========== Relatorio De Vendas ============");
-       System.out.println("| Vendeu "+ percentagemMaca+"% dos pacotes de Maças Do Sotck   |");
-       System.out.println("| Vendeu "+ percentagemBatata+"% dos pacotes de Batatas Do Sotck |");
+       System.out.printf("| Percentagem de pacotes de Maças: %.2f |\n",(percentagemMaca));
+       System.out.printf("| Percentagem de pacotes de Batatas: %.2f |\n",(percentagemBatata));
        System.out.println("| Total de pacotes de Maças: "+pacotesMaca+" pacotes     |");
        System.out.println("| Total de pacotes de Batatas "+pacotesBatata+" pacotes    |");
        System.out.println("| Total de produtos no Stock: "+(pacotesMaca+pacotesBatata)+" pacotes    |");
